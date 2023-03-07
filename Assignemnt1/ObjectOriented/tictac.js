@@ -27,9 +27,6 @@ document.addEventListener('click',(e) =>
   
   })
   
-//document.getElementsByClassName("reset").addEventListener("click", game.reset())
-
-
 const game = {
   name: "Tick-Tack-Toe",
   player1: [],
