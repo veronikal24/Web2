@@ -12,19 +12,17 @@ document.addEventListener('click',(e) =>
       if(valid_array.includes(Number(elementClass))){
       count++;
       game.turn(count, elementClass);
-
       }
     }
     if (elementClass === 'reset') {
       game.reset()
       count = 0
     }
-
     // If element has no classes
     else {
       console.log('An element without a class was clicked');
     }
-  
+
   })
   
 const game = {
@@ -57,6 +55,20 @@ const game = {
             document.getElementsByClassName(name)[0].innerHTML = Number(document.getElementsByClassName(name)[0].innerHTML) + 1
             winning_combos.splice(i, 1);
             this.player= []
+              if(document.getElementsByClassName("X")[0].innerHTML > 
+            document.getElementsByClassName("O")[0].innerHTML ||document.getElementsByClassName("X")[0].innerHTML === 
+            document.getElementsByClassName("O")[0].innerHTML  ){
+            document.getElementById("messagebox").innerHTML = "GAME OVER: X won";
+            alert("GAME OVER: X won")}
+            else if((Number(document.getElementsByClassName("X")[0].innerHTML) 
+            + Number(document.getElementsByClassName("O")[0].innerHTML)) === 0 ){
+              document.getElementById("messagebox").innerHTML = "GAME OVER: Nobody won";
+              alert("GAME OVER: Nobody Won")
+            }
+            else{
+              document.getElementById("messagebox").innerHTML = "GAME OVER: O won";
+              alert("GAME OVER: O won")
+            }
             break;
           }
         }
@@ -70,20 +82,11 @@ const game = {
             console.log( "I am in 9")
             document.getElementsByClassName(x)[0].innerHTML = "O"
             this.movement(this.player2, x, "O")
-            if(document.getElementsByClassName("X")[0].innerHTML > 
-            document.getElementsByClassName("O")[0].innerHTML ||document.getElementsByClassName("X")[0].innerHTML === 
-            document.getElementsByClassName("O")[0].innerHTML  ){
-            document.getElementById("messagebox").innerHTML = "GAME OVER: X won";
-            alert("GAME OVER: X won")}
-            else if((Number(document.getElementsByClassName("X")[0].innerHTML) 
+            if((Number(document.getElementsByClassName("X")[0].innerHTML) 
             + Number(document.getElementsByClassName("O")[0].innerHTML)) === 0 ){
               document.getElementById("messagebox").innerHTML = "GAME OVER: Nobody won";
               alert("GAME OVER: Nobody Won")
-            }
-          
-            else{
-              document.getElementById("messagebox").innerHTML = "GAME OVER: O won";
-              alert("GAME OVER: O won")
+              this.reset()
             }
           }
             else if( count % 2 === 0){
@@ -91,8 +94,6 @@ const game = {
               this.movement(this.player1, x, "X")
               document.getElementById("messagebox").innerHTML = "Next TURN: O";
               return "X"
-            
-
           }
           else if(count < 10){
             document.getElementsByClassName(x)[0].innerHTML = "O"
@@ -110,9 +111,6 @@ const game = {
     document.getElementsByClassName("X")[0].innerHTML = "" 
     document.getElementsByClassName("O")[0].innerHTML = "" 
     document.getElementById("messagebox").innerHTML = ""
-
-
   }
-   
 };
 console.log(game.description)
