@@ -56,6 +56,7 @@ function check_if_you_won(player, name, count){
         document.getElementsByClassName(name)[0].innerHTML = Number(document.getElementsByClassName(name)[0].innerHTML) + 1
         document.getElementById("messagebox").innerHTML = "GAME OVER: "+ name +" won";
         alert("GAME OVER: "+ name+" won")
+        reset()
         won = true
     }
       }
