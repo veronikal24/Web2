@@ -22,17 +22,12 @@ document.addEventListener('click',(e) =>
     else {
       console.log('An element without a class was clicked');
     }
-
   })
   
 const game = {
   name: "Tick-Tack-Toe",
   player1: [],
   player2: [],
-
-  description : function() {
-    return this.name + " " + this.player1 + " " + this.player2;
-  },
   movement: function(player, x,name){
         console.log(...player)
       
@@ -73,20 +68,16 @@ const game = {
           }
         }
         return player
-
   },
   turn: function(count, x){
-            console.log(count)
             if(count === 9)
             {
-            console.log( "I am in 9")
             document.getElementsByClassName(x)[0].innerHTML = "O"
             this.movement(this.player2, x, "O")
             if((Number(document.getElementsByClassName("X")[0].innerHTML) 
             + Number(document.getElementsByClassName("O")[0].innerHTML)) === 0 ){
               document.getElementById("messagebox").innerHTML = "GAME OVER: Nobody won";
               alert("GAME OVER: Nobody Won")
-              this.reset()
             }
           }
             else if( count % 2 === 0){
@@ -113,4 +104,3 @@ const game = {
     document.getElementById("messagebox").innerHTML = ""
   }
 };
-console.log(game.description)
