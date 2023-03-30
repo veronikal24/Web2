@@ -1,14 +1,12 @@
 {
   "name": "json",
   "version": "1.0.0",
-  "homepage": "https://veronikal24.github.io/Web2",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "npm run build",
-    "build": "react-scripts build",
-    "deploy": "gh-pages -d build"
+    "build": "react-scripts build"
   },
   "author": "",
   "license": "ISC",
