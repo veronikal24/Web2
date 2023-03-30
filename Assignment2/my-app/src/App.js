@@ -1,7 +1,7 @@
 
 import './App.css';
 /* existing imports */
-import Root from "./routes/root";
+import Root from "./routes/root.jsx";
 import React from "react";
 import {
   createBrowserRouter,
