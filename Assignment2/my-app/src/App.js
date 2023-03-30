@@ -1,14 +1,25 @@
 
 import './App.css';
+/* existing imports */
+import Root from "./routes/root";
 import React from "react";
-import Home from ".";
-import {Switch, Route } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element:  <Root />,
+  },
+]);
 
 function App() {
   return (
-    <Switch>
-      <Route exact component={Home} path="/" />
-    </Switch>
+    <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
   );
 }
 
